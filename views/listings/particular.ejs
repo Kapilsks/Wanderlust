@@ -1,0 +1,25 @@
+<% layout('/layouts/boilerplate') -%>
+<body>
+    <h1>Listing Details: <%= listing.title %></h1>
+
+    <div class="listing-detail">
+        <img src="<%= listing.image.url %>" alt="<%= listing.title %>" style="width:100%; max-width:500px;">
+        <p><strong>Description:</strong> <%= listing.description %></p>
+        <p><strong>Price:</strong> $<%= listing.price %></p>
+        <p><strong>Location:</strong> <%= listing.location %>, <%= listing.country %></p>
+        <p><strong>Owner ID:</strong> <%= listing.owner %></p>
+        <!-- Add more details as needed -->
+    </div>
+
+    <% if (listing.review.length > 0) { %>
+        <h2>Reviews</h2>
+        <ul>
+            <% listing.review.forEach(review => { %>
+                <li><%= review %></li>
+            <% }) %>
+        </ul>
+    <% } else { %>
+        <p>No reviews yet.</p>
+    <% } %>
+
+</body>
